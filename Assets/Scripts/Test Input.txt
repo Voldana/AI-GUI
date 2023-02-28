@@ -1,0 +1,12 @@
+p1=RGB,p2=RBR,p3=GBR,p4=GGG,p5=E,p6=E
+p1,p2
+p1,p4
+p3,p4
+p3,p1
+p2,p3
+p3,p2
+p1,p2
+p2,p1
+p2,p3
+p2,p3
+p2,p3
