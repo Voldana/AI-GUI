@@ -313,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockPrefab: {fileID: -4371954473696350271, guid: a1c6cfa56bf84e24b924981b34f2a9ce, type: 3}
+  placeHolder: {fileID: 4553116308555281705, guid: 552d660385e064243821581597a11f8b, type: 3}
   red: {fileID: 2100000, guid: e89f9297de988a74b8d53c75386d8aed, type: 2}
   blue: {fileID: 2100000, guid: 03ca3ff6df19f5647b45d53e3c37de25, type: 2}
   green: {fileID: 2100000, guid: add6f7123e9b0d9458478a61ce148a47, type: 2}

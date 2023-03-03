@@ -62,6 +62,11 @@ public class GameManager : MonoBehaviour
 
     private void DoAction()
     {
+        if (actionList.Count == 0)
+        {
+            DOVirtual.DelayedCall(3f, (() => Application.Quit()));
+            return;
+        }
         var action = actionList.Dequeue();
         var from = pilesList[Convert.ToInt32(Char.GetNumericValue(action[0])) - 1];
         var to = pilesList[Convert.ToInt32(Char.GetNumericValue(action[1])) - 1];
@@ -78,7 +83,7 @@ public class GameManager : MonoBehaviour
         
         var block = from.blockStack.Pop();
         var path = new []{CalculateMiddlePoint(),target + Vector3.up * verticalGap};
-        block.transform.DOPath(path, 0.3f, PathType.CatmullRom).OnComplete(() =>
+        block.transform.DOPath(path, 0.15f, PathType.CatmullRom).OnComplete(() =>
         {
             to.blockStack.Push(block);
             DoAction();
