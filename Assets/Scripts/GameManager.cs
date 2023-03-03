@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     
     private List<Pile> pilesList;
     private Queue<string> actionList;
+    private float speed = 5;
     private void Start()
     {
         pilesList = new List<Pile>();
@@ -31,12 +32,18 @@ public class GameManager : MonoBehaviour
     public void ReadInput()
     {
         bool first = true;
+        bool second = true;
         var file = File.ReadAllLines(Application.dataPath + "/StreamingAssets/Test Input.txt");
         foreach (var line in file)
         {
             if (first)
             {
                 first = false;
+                speed = float.Parse(line);
+            }
+            else if (second)
+            {
+                second = false;
                 Initialize(line);
             }
             else
@@ -83,7 +90,7 @@ public class GameManager : MonoBehaviour
         
         var block = from.blockStack.Pop();
         var path = new []{CalculateMiddlePoint(),target + Vector3.up * verticalGap};
-        block.transform.DOPath(path, 0.15f, PathType.CatmullRom).OnComplete(() =>
+        block.transform.DOPath(path, speed, PathType.CatmullRom).SetSpeedBased().OnComplete(() =>
         {
             to.blockStack.Push(block);
             DoAction();
