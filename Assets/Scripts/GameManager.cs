@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     
     [SerializeField] private Block blockPrefab;
+    [SerializeField] private GameObject placeHolder;
     
     [SerializeField] private Material red;
     [SerializeField] private Material blue;
@@ -121,6 +122,7 @@ public class GameManager : MonoBehaviour
         foreach (var pile in pilesList)
         {
             pile.basePosition = firstPos - Vector3.up * verticalGap;
+            Instantiate(placeHolder, pile.basePosition,Quaternion.identity);
             if (pile.blockStack.Count == 0)
             {
                 firstPos += Vector3.down * verticalGap * pile.blockStack.Count + Vector3.right * horizontalGap;
